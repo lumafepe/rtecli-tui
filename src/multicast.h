@@ -1,9 +1,7 @@
 #ifndef MULTICAST_H
 #define MULTICAST_H
 
-#include <map>
 #include <string>
-#include <tuple>
 #include <vector>
 
 #include "components/tab.h"
@@ -18,7 +16,7 @@ public:
 
   void updateState();
   ftxui::Component render();
-  void handleEvent(ftxui::Event event);
+  bool handleEvent(ftxui::Event event);
 
 private:
   int m_group_selected;

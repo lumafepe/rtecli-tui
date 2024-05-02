@@ -13,7 +13,6 @@
 #include "registers.h"
 #include "system-counters.h"
 #include "tables.h"
-#include "util.h"
 #include <memory>
 
 #define INTERVAL 1s
@@ -67,7 +66,8 @@ int main(int argc, char *argv[]) {
         separator(),
         tab_container->Render(),
         filler(),
-        text("hjkl - navigate | q - quit") | inverted | center,
+        text("hjkl - navigate | PgDn/PgUp - scroll | q - quit") | inverted |
+            center,
     });
   });
 
@@ -93,8 +93,7 @@ int main(int argc, char *argv[]) {
                   return true;
                 }
                 auto &tab_ptr = tabs[tab_selected];
-                tab_ptr->handleEvent(event);
-                return false;
+                return tab_ptr->handleEvent(event);
               }));
 
   refresh_ui_continue = false;

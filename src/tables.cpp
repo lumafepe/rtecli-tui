@@ -7,7 +7,6 @@
 #include <ftxui/dom/table.hpp>
 #include <ftxui/screen/screen.hpp>
 
-#include <iostream>
 #include <nlohmann/json.hpp>
 
 using namespace std;
@@ -103,4 +102,4 @@ Component Tables::render() {
   });
 }
 
-void Tables::handleEvent(Event event){};
+bool Tables::handleEvent(Event event) { return false; };
